@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./toggleSwitch.css">
+        <link rel="stylesheet" href="./rangeSlider.css">
+    </head>
+
+    <body>
+
+        <div class="grid-container">
+            <div class="house1">
+                <div class="first-switch">
+                    <h3 style="text-align: center;">Điều khiển quạt</h3>
+                    <div class="power-switch">
+                        <input type="checkbox" />
+                        <div class="button">
+                            <svg class="power-off">
+                                <use xlink:href="#line" class="line" />
+                                <use xlink:href="#circle" class="circle" />
+                            </svg>
+                            <svg class="power-on">
+                                <use xlink:href="#line" class="line" />
+                                <use xlink:href="#circle" class="circle" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+                            <line x1="75" y1="34" x2="75" y2="58" />
+                        </symbol>
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+                            <circle cx="75" cy="80" r="35" />
+                        </symbol>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="house2">
+                <div class="second-switch">
+                    <h3 style="text-align: center;">Điều khiển đèn</h3>
+                    <div class="power-switch">
+                        <input type="checkbox" />
+                        <div class="button">
+                            <svg class="power-off">
+                                <use xlink:href="#line" class="line" />
+                                <use xlink:href="#circle" class="circle" />
+                            </svg>
+                            <svg class="power-on">
+                                <use xlink:href="#line" class="line" />
+                                <use xlink:href="#circle" class="circle" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+                            <line x1="75" y1="34" x2="75" y2="58" />
+                        </symbol>
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+                            <circle cx="75" cy="80" r="35" />
+                        </symbol>
+                    </svg>
+                </div>
+            </div>
+            <div class="house3">
+                <h3 style="text-align: center;">Điều khiển tốc độ</h3>
+                <form style="--min: 0; --max: 255; --val: 25">
+                    <input type="range" min="0" max="255" value="25" list="l" />
+                    <datalist id="l">
+                        <option label="min" value="0"></option>
+                        <option label="max" value="100"></option>
+                    </datalist>
+                </form>
+                <h4 id="speedValue" style="text-align: center;">36</h4>
+                <script>
+                    document.documentElement.classList.add('js');
+                    addEventListener('input', e => {
+                        let _t = e.target;
+                        _t.parentNode.style.setProperty('--val', +_t.value)
+
+                        document.getElementById('speedValue').innerHTML = _t.value
+                    }, false);
+                </script>
+            </div>
+            <div class="house4">
+                <div class="temperature">
+                    <h3>Nhiệt độ hiện tại: <span id="temperature">23</span></h3>
+                </div>
+                <div class="humidity">
+                    <h3>Độ ẩm không khí: <span id="humidity">75</span></h3>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+
+    <script src="./index.js"></script>
+
+</html>
